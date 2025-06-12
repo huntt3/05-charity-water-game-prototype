@@ -143,3 +143,12 @@ body {
         height: 70vh;
     }
 }
+
+#gameCanvas {
+    display: block;
+    margin: 40px auto;
+    background: #111;
+    border: 4px solid #0ff;
+    border-radius: 16px;
+    box-shadow: 0 0 32px #0ff4;
+}
