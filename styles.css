@@ -108,6 +108,19 @@ body {
     animation: fadeinout 4s linear forwards;
 }
 
+#giant-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  font-size: 200vw;
+  color: #f0f0f0;
+  z-index: -1;
+}
+
 @-webkit-keyframes fadeinout {
   0%,100% { opacity: 0; }
   15% { opacity: 1; }
