@@ -4,21 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Pinball</title>
+    <link rel="icon" type="image/x-icon" href="/img/water-can.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="elementToFadeInAndOut">
     <img src="img/cw_logo.png" alt="Charity: Water Logo" id="logo-fade-img">
-    <script>
-      setTimeout(() => {
-        const element = document.getElementById("logo-fade-img");
-        element.remove();
-      }, 4000);
-    </script>
+    <script src="logo.js"></script>
   </div>
     <div class="game-wrapper">
         <h1 class="game-title">Water Pinball</h1>
-        <p class="game-tagline">Catch the good drops, avoid the bad ones!</p>
         <a href="levels/level1.html" id="start-btn" class="start-link">Start Game</a>
       </div>
     

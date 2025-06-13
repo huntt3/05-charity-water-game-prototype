@@ -39,12 +39,20 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 #game-container {
-    width: 800px;
-    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    /*width: 800px;
+    height: 600px;*/
     background-color: #e6f7ff;
     border: 2px solid #333;
     border-radius: 8px;
@@ -84,15 +92,6 @@ body {
     text-align: center;
 }
 
-@keyframes dropFall {
-    from {
-        transform: translateY(-20px);
-    }
-    to {
-        transform: translateY(600px);
-    }
-}
-
 @media (max-width: 850px) {
     .game-wrapper, .score-panel, #game-container {
         width: 95vw;
@@ -101,15 +100,6 @@ body {
     #game-container {
         height: 70vh;
     }
-}
-
-#gameCanvas {
-    display: block;
-    margin: 40px auto;
-    background: #111;
-    border: 4px solid #0ff;
-    border-radius: 16px;
-    box-shadow: 0 0 32px #0ff4;
 }
 
 .elementToFadeInAndOut {
