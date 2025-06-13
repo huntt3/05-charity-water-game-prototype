@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Pinball</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <div class="game-wrapper">
         <h1 class="game-title">Water Pinball</h1>
         <p class="game-tagline">Catch the good drops, avoid the bad ones!</p>
-        <a href="levels/level1.html" id="start-btn" class="start-link">Start Game</a>
-      </div>
+        <button id="start-btn">Start Game</button>
+        
+        <div id="game-container">
+          <script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
+          <script src="/script.js"></script>
+        </div>
+    </div>
     
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>
