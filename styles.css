@@ -111,3 +111,19 @@ body {
     border-radius: 16px;
     box-shadow: 0 0 32px #0ff4;
 }
+
+.elementToFadeInAndOut {
+    position: absolute;
+    -webkit-animation: fadeinout 4s linear forwards;
+    animation: fadeinout 4s linear forwards;
+}
+
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  15% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  15% { opacity: 1; }
+}
