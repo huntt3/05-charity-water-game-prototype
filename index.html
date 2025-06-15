@@ -10,13 +10,17 @@
 <body>
   <div class="elementToFadeInAndOut">
     <img src="img/cw_logo.png" alt="Charity: Water Logo" id="logo-fade-img">
-    <div id="giant-box" aria-hidden="true">&#9632;</div>
+    <div id="giant-box">&#9632;</div>
     <script src="logo.js"></script>
   </div>
     <div class="game-wrapper">
         <h1 class="game-title">Water Pinball</h1>
         <p class="game-tagline">Catch the good drops, avoid the bad ones!</p>
-        <a href="levels/level1.html" id="start-btn" class="start-link">Start Game</a>
+        <a href="levels/level1.html" class="index-btn">Start Game</a>
+        <div class="donate-buttons" style="display: flex; flex-direction: column; gap: 1rem; align-items: center; margin-top: 1rem;">
+          <a href="https://www.charitywater.org/" class="index-btn" target="_blank" rel="noopener noreferrer">Learn more about Charity: Water</a>
+          <a href="https://www.charitywater.org/donate" class="index-btn" target="_blank" rel="noopener noreferrer">Donate to Charity: Water</a>
+        </div>
       </div>
     
     <script src="script.js"></script>

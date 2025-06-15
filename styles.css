@@ -5,6 +5,10 @@ Fonts:
 - Avenir
 
 */
+@font-face {
+  font-family: "Avenir";
+  src: url() format("truetype");
+}
 
 :root {
   /* Primary Colors: */
@@ -24,6 +28,7 @@ Fonts:
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Proxima Nova', Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -32,7 +37,6 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
 }
 
 .game-wrapper {
@@ -61,18 +65,19 @@ body {
 }
 
 
-#start-btn {
+.index-btn {
     padding: 8px 16px;
-    background-color: #4CAF50;
+    background-color: var(--charity-water-green);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    text-decoration:none
 }
 
-#start-btn:hover {
-    background-color: #45a049;
+.index-btn:hover {
+    background-color: var(--charity-water-dark-green);
 }
 
 
@@ -122,11 +127,11 @@ body {
 }
 
 @-webkit-keyframes fadeinout {
-  0%,100% { opacity: 0; }
-  15% { opacity: 1; }
+  100% { opacity: 0; }
+  0% { opacity: 1; }
 }
 
 @keyframes fadeinout {
-  0%,100% { opacity: 0; }
-  15% { opacity: 1; }
+  100% { opacity: 0; }
+  0% { opacity: 1; }
 }
