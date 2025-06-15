@@ -1,4 +1,3 @@
-/*
 // Use Matter.js for pinball physics
 // Make sure Matter.js is loaded via CDN in index.html
 
@@ -159,4 +158,3 @@ Composite.add(world, mouseConstraint);
 
 // Keep the mouse in sync with rendering
 render.mouse = mouse;
-*/

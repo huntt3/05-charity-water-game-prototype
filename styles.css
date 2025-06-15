@@ -6,7 +6,7 @@ Fonts:
 
 */
 @font-face {
-    font-family: 'AvenirLTStd-Medium';
+    font-family: local('AvenirLTStd-Medium');
     src: url('fonts/AvenirLTStd-Medium.otf') format('opentype');
 }
 
@@ -22,6 +22,13 @@ Fonts:
   --charity-water-red: #F5402C;
   --charity-water-dark-green: #159A48;
   --charity-water-pink: #F16061;
+
+  --charity-water-button-primary-bg: #FFCA0A;
+  --charity-water-button-primary-bg-hover: #FFD53B;
+  --charity-water-background-light-primary: #FAF7F0;
+  --charity-water-background-light-secondary: #F8EED3;
+  --charity-water-link-primary-text: #222520;
+
 }
 
 * {
@@ -36,7 +43,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--charity-water-background-light-secondary);
 }
 
 .game-wrapper {
@@ -67,8 +74,8 @@ body {
 
 .index-btn {
     padding: 8px 16px;
-    background-color: var(--charity-water-green);
-    color: white;
+    background-color: var(--charity-water-button-primary-bg);
+    color: var(--charity-water-link-primary-text);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -77,13 +84,13 @@ body {
 }
 
 .index-btn:hover {
-    background-color: var(--charity-water-dark-green);
+    background-color: var(--charity-water-button-primary-bg-hover);
 }
 
 
 
 .game-title {
-    color: #131313;
+    color: var(--charity-water-link-primary-text);
     font-size: 48px;
     margin-top: 0;
     margin-bottom: 5px;  /* reduced from 20px */
@@ -91,7 +98,7 @@ body {
 }
 
 .game-tagline {
-    color: #666;
+    color: var(--charity-water-link-primary-text);
     font-size: 18px;
     margin-bottom: 20px;
     text-align: center;
@@ -122,7 +129,7 @@ body {
   display: flex;
   align-items: center;
   font-size: 200vw;
-  color: #f0f0f0;
+  color: var(--charity-water-background-light-secondary);
   z-index: -1;
 }
 
@@ -134,4 +141,13 @@ body {
 @keyframes fadeinout {
   100% { opacity: 0; }
   0% { opacity: 1; }
+}
+
+.level-card-col {
+  flex: 1 0 20%;
+  max-width: 20%;
+  min-width: 200px;
+}
+.level-card-link {
+  text-decoration: none;
 }
