@@ -196,6 +196,7 @@ Events.on(engine, 'collisionStart', function(event) {
 document.addEventListener('DOMContentLoaded', function() {
   function resetGame() {
     // Reset ball position and velocity
+    Runner.stop(runner);
     Matter.Body.setPosition(ball, { x: 200, y: 60 });
     Matter.Body.setVelocity(ball, { x: 0, y: 0 });
     Matter.Body.setAngularVelocity(ball, 0);
@@ -234,6 +235,22 @@ document.addEventListener('DOMContentLoaded', function() {
     pauseBtnTop.addEventListener('click', function() {
       Runner.stop(runner);
       const modal = new bootstrap.Modal(document.getElementById('pauseModal'));
+      modal.show();
+    });
+  }
+  
+    // Show instructions modal on first load
+  const instructionsModalEl = document.getElementById('instructionsModal');
+  if (instructionsModalEl) {
+    const instructionsModal = new bootstrap.Modal(instructionsModalEl, { backdrop: 'static', keyboard: true });
+    instructionsModal.show();
+  }
+
+  // Instructions button
+  const instructionsBtn = document.getElementById('instructions-btn-top');
+  if (instructionsBtn) {
+    instructionsBtn.addEventListener('click', function() {
+      const modal = new bootstrap.Modal(document.getElementById('instructionsModal'));
       modal.show();
     });
   }

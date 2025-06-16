@@ -165,3 +165,22 @@ body {
 .pause-btn {
   min-width: 80px;
 }
+
+.ramp {
+  position: absolute;
+  width: 120px;
+  height: 16px;
+  background: #bbb;
+  border-radius: 8px;
+  z-index: 2;
+}
+.ramp-left {
+  left: 0;
+  top: 260px;
+  transform: rotate(-25deg);
+}
+.ramp-right {
+  right: 0;
+  top: 260px;
+  transform: rotate(25deg);
+}
