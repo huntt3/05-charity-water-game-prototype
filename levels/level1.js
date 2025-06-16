@@ -182,6 +182,21 @@ const rampEndRight = Bodies.rectangle(360, 250, 100, 16, {
 });
 Composite.add(world, [rampEndLeft, rampEndRight]);
 
+// Increase flipper density and restitution to improve collision reliability
+Body.setDensity(leftFlipper, 0.1); // higher density
+Body.setDensity(rightFlipper, 0.1);
+leftFlipper.restitution = .25;
+rightFlipper.restitution = .25;
+
+// Improve collision detection by increasing the simulation's constraint iterations and time step
+engine.positionIterations = 12; // default is 6
+engine.velocityIterations = 12; // default is 4
+engine.constraintIterations = 6; // default is 2
+engine.timing.timeScale = 1;
+
+// Optionally, make the ball slightly less bouncy to help with stability
+ball.restitution = 0.45;
+
 // Helper to open the modal and trigger confetti
 function showCongratulationsModal() {
     // Pause physics
