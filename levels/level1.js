@@ -35,7 +35,7 @@ const runner = Runner.create();
 Runner.run(runner, engine);
 
 // Ball bearing
-const ball = Bodies.circle(140, 60, 16, {
+const ball = Bodies.circle(130, 60, 16, {
     restitution: 0.8,
     render: { fillStyle: 'deepskyblue' }
 });
@@ -44,7 +44,7 @@ Composite.add(world, ball);
 // Walls
 const walls = [
     Bodies.rectangle(200, 0, 400, 20, { isStatic: true }), // top
-    Bodies.rectangle(200, 400, 400, 20, { isStatic: true }), // bottom
+    /*Bodies.rectangle(200, 400, 400, 20, { isStatic: true }),*/ // bottom
     Bodies.rectangle(0, 200, 20, 400, { isStatic: true }), // left
     Bodies.rectangle(400, 200, 20, 400, { isStatic: true }) // right
 ];
@@ -59,7 +59,7 @@ const flipperY = 340;
 const leftFlipper = Bodies.rectangle(120, flipperY, flipperLength, flipperWidth, {
     isStatic: false,
     chamfer: { radius: 8 },
-    render: { fillStyle: 'gray' }
+    render: { fillStyle: '#F16061' }
 });
 const leftHinge = Constraint.create({
     bodyA: leftFlipper,
@@ -74,7 +74,7 @@ Composite.add(world, [leftFlipper, leftHinge]);
 const rightFlipper = Bodies.rectangle(280, flipperY, flipperLength, flipperWidth, {
     isStatic: false,
     chamfer: { radius: 8 },
-    render: { fillStyle: 'gray' }
+    render: { fillStyle: '#F16061' }
 });
 const rightHinge = Constraint.create({
     bodyA: rightFlipper,
@@ -167,6 +167,21 @@ const waterCan = Bodies.rectangle(300, 200, 40, 40, {
 });
 Composite.add(world, waterCan);
 
+// Add end ramps as static bodies for collision, sloping toward the flippers
+const rampEndLeft = Bodies.rectangle(40, 250, 100, 16, {
+    isStatic: true,
+    angle: Math.PI / 3, // ~36 degrees
+    chamfer: { radius: 8 },
+    render: { fillStyle: '#4FCB53' }
+});
+const rampEndRight = Bodies.rectangle(360, 250, 100, 16, {
+    isStatic: true,
+    angle: -Math.PI / 3, // ~-36 degrees
+    chamfer: { radius: 8 },
+    render: { fillStyle: '#4FCB53' }
+});
+Composite.add(world, [rampEndLeft, rampEndRight]);
+
 // Helper to open the modal and trigger confetti
 function showCongratulationsModal() {
     // Pause physics
@@ -189,6 +204,19 @@ Events.on(engine, 'collisionStart', function(event) {
             goalReached = true;
             showCongratulationsModal();
         }
+    }
+});
+
+// Detect if the ball leaves the canvas (stage) and show failure modal
+Events.on(engine, 'afterUpdate', function() {
+    if (!goalReached && (
+        ball.position.x < -30 || ball.position.x > 430 ||
+        ball.position.y < -30 || ball.position.y > 430
+    )) {
+        Runner.stop(runner);
+        const modal = new bootstrap.Modal(document.getElementById('failureModal'));
+        modal.show();
+        goalReached = true;
     }
 });
 

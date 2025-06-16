@@ -7,7 +7,7 @@ Fonts:
 */
 @font-face {
     font-family: local('AvenirLTStd-Medium');
-    src: url('fonts/AvenirLTStd-Medium.otf') format('opentype');
+    src: url('./fonts/AvenirLTStd-Medium.otf') format('opentype');
 }
 
 :root {
@@ -166,21 +166,22 @@ body {
   min-width: 80px;
 }
 
-.ramp {
+
+.ramp-end {
   position: absolute;
-  width: 120px;
+  width: 100px;
   height: 16px;
-  background: #bbb;
+  background: var(--charity-water-pink);
   border-radius: 8px;
   z-index: 2;
 }
-.ramp-left {
+.ramp-end-left {
   left: 0;
-  top: 260px;
-  transform: rotate(-25deg);
+  bottom: 60px;
+  transform: rotate(35deg);
 }
-.ramp-right {
+.ramp-end-right {
   right: 0;
-  top: 260px;
-  transform: rotate(25deg);
+  bottom: 60px;
+  transform: rotate(-35deg);
 }
