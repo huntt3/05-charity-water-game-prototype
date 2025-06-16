@@ -35,7 +35,7 @@ const runner = Runner.create();
 Runner.run(runner, engine);
 
 // Ball bearing
-const ball = Bodies.circle(200, 60, 16, {
+const ball = Bodies.circle(140, 60, 16, {
     restitution: 0.8,
     render: { fillStyle: 'deepskyblue' }
 });
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function resetGame() {
     // Reset ball position and velocity
     Runner.stop(runner);
-    Matter.Body.setPosition(ball, { x: 200, y: 60 });
+    Matter.Body.setPosition(ball, { x: 140, y: 60 });
     Matter.Body.setVelocity(ball, { x: 0, y: 0 });
     Matter.Body.setAngularVelocity(ball, 0);
     // Reset flipper positions and velocities
@@ -238,20 +238,27 @@ document.addEventListener('DOMContentLoaded', function() {
       modal.show();
     });
   }
-  
-    // Show instructions modal on first load
-  const instructionsModalEl = document.getElementById('instructionsModal');
-  if (instructionsModalEl) {
-    const instructionsModal = new bootstrap.Modal(instructionsModalEl, { backdrop: 'static', keyboard: true });
-    instructionsModal.show();
-  }
 
-  // Instructions button
-  const instructionsBtn = document.getElementById('instructions-btn-top');
-  if (instructionsBtn) {
-    instructionsBtn.addEventListener('click', function() {
-      const modal = new bootstrap.Modal(document.getElementById('instructionsModal'));
-      modal.show();
-    });
-  }
+  // Keyboard shortcut: press 'r' to reset
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'r' || e.key === 'R') {
+      resetGame();
+    }
+  });
 });
+
+// Show instructions modal on first load
+const instructionsModalEl = document.getElementById('instructionsModal');
+if (instructionsModalEl) {
+  const instructionsModal = new bootstrap.Modal(instructionsModalEl, { backdrop: 'static', keyboard: true });
+  instructionsModal.show();
+}
+
+// Instructions button
+const instructionsBtn = document.getElementById('instructions-btn-top');
+if (instructionsBtn) {
+  instructionsBtn.addEventListener('click', function() {
+    const modal = new bootstrap.Modal(document.getElementById('instructionsModal'));
+    modal.show();
+  });
+}
