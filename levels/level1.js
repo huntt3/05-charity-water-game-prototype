@@ -163,7 +163,7 @@ render.mouse = mouse;
 const waterCan = Bodies.rectangle(300, 200, 40, 40, {
     isStatic: true,
     isSensor: true, // so the ball passes through
-    render: { sprite: { texture: '/img/water-can-transparent.png', xScale: 4/40, yScale: 4/40 } }
+    render: { sprite: { texture: '../img/water-can-transparent.png', xScale: 4/40, yScale: 4/40 } }
 });
 Composite.add(world, waterCan);
 
