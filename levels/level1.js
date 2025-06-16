@@ -290,11 +290,19 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Show instructions modal on first load
+// On first load, pause the physics engine until instructionsModal is closed
+Runner.stop(runner);
+// Pause physics engine while instructionsModal is open, resume when closed
 const instructionsModalEl = document.getElementById('instructionsModal');
+const instructionsModal = new bootstrap.Modal(instructionsModalEl, { backdrop: 'static', keyboard: true });
+instructionsModal.show();
 if (instructionsModalEl) {
-  const instructionsModal = new bootstrap.Modal(instructionsModalEl, { backdrop: 'static', keyboard: true });
-  instructionsModal.show();
+  instructionsModalEl.addEventListener('show.bs.modal', function() {
+    Runner.stop(runner);
+  });
+  instructionsModalEl.addEventListener('hidden.bs.modal', function() {
+    Runner.run(runner, engine);
+  });
 }
 
 // Instructions button
