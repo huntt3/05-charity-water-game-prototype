@@ -158,3 +158,36 @@ Composite.add(world, mouseConstraint);
 
 // Keep the mouse in sync with rendering
 render.mouse = mouse;
+
+// Add the water can as a static sensor body in the center
+const waterCan = Bodies.rectangle(300, 200, 40, 40, {
+    isStatic: true,
+    isSensor: true, // so the ball passes through
+    render: { sprite: { texture: '/img/water-can-transparent.png', xScale: 4/40, yScale: 4/40 } }
+});
+Composite.add(world, waterCan);
+
+// Helper to open the modal and trigger confetti
+function showCongratulationsModal() {
+    // Pause physics
+    Runner.stop(runner);
+    // Show modal
+    const modal = new bootstrap.Modal(document.getElementById('congratsModal'));
+    modal.show();
+    // Trigger confetti
+    if (window.confetti) {
+      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+    }
+}
+
+// Only trigger once
+let goalReached = false;
+Events.on(engine, 'collisionStart', function(event) {
+    if (goalReached) return;
+    for (const pair of event.pairs) {
+        if ((pair.bodyA === ball && pair.bodyB === waterCan) || (pair.bodyB === ball && pair.bodyA === waterCan)) {
+            goalReached = true;
+            showCongratulationsModal();
+        }
+    }
+});

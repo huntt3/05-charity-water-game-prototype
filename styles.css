@@ -151,3 +151,13 @@ body {
 .level-card-link {
   text-decoration: none;
 }
+
+
+#goal-watering-can {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 80px;
+  height: auto;
+  z-index: 10;
+}
