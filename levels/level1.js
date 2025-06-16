@@ -25,7 +25,7 @@ const render = Render.create({
         width: 400,
         height: 400,
         wireframes: false,
-        background: '#e0f7fa'
+        background: '#F8EED3'
     }
 });
 Render.run(render);
