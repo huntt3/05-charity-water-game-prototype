@@ -161,3 +161,7 @@ body {
   height: auto;
   z-index: 10;
 }
+
+.pause-btn {
+  min-width: 80px;
+}
